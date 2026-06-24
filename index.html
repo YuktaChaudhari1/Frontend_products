@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeVector Products</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>CodeVector Products</h1>
+      <select id="categoryFilter">
+        <option value="">All categories</option>
+      </select>
+      <span id="pageInfo" class="page-info"></span>
+
+      <!-- TEST 8 BUTTON: inject new products while on page 1, then go to page 2 -->
+      <button id="injectBtn" onclick="injectNewProducts()" class="inject-btn">
+        Inject 3 new products
+      </button>
+    </header>
+
+    <!-- STATUS BAR: shows pass/fail messages for each test -->
+    <div id="statusBar" class="status-bar status-loading">Loading...</div>
+
+    <div class="layout">
+      <!-- LEFT 3/4: product cards -->
+      <div class="left-panel">
+        <div class="grid" id="productGrid">Loading...</div>
+        <div class="pagination">
+          <button id="prevBtn" onclick="goBack()" disabled>← Prev</button>
+          <button id="nextBtn" onclick="goNext()">Next →</button>
+          <span class="page-hint">
+            Page 1: note the IDs. Inject products. Go to page 2. No duplicates =
+            cursor works.
+          </span>
+        </div>
+      </div>
+
+      <!-- RIGHT 1/4: live feed -->
+      <div class="right-panel">
+        <div class="stat-box">
+          <span class="stat-label">Total products</span>
+          <span class="stat-value" id="totalCount">—</span>
+        </div>
+        <div class="feed-header">
+          <h2>Live feed</h2>
+          <span class="feed-hint">auto-refreshes every 5s</span>
+        </div>
+        <div id="liveFeed">Loading feed...</div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
